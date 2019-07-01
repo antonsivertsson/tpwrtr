@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  overflow-x:hidden;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+}
+
+body {
+  font-family: 'IM Fell DW Pica', serif;
+  width: 200%;
+  background-color: #282c34;
+  scroll-behavior: smooth;
+}
+
+.timestamp {
+  color: #444444;
+  font-size: 0.6em;
+  margin: 0;
+  margin-left: 3em;
+}
+
+.paper {
+  background-color:white;
+  font-size: 2em;
+  height: 2000px;
+  margin: 6em auto;
+  width: 70vw;
+  transition: all 0.05s ease-in-out;
+  white-space:pre-wrap;
+}
+
+.paperMargins {
+  margin: 0em auto;
+  padding-top: 2em;
+}
