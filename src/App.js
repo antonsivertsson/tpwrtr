@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import Tone from "tone";
 
+// Load sounds
 let tpRoll1 = new Tone.Player("./pullback_1.wav").toMaster();
 tpRoll1.playbackRate = 1.5;
 let tpRoll2 = new Tone.Player("./pullback_2.wav").toMaster();
@@ -43,12 +44,11 @@ class Typewriter extends React.Component {
 
     this.leftMargin = "auto"; // Default value
     this.paperLeftMargin = 0; //this.leftMargin + 10% (currently) of paper width in comparison with paper
-    //this.paperMarginPercent = 80;
     this.writableRowLength = 0;
     this.writingStartPosition = 0;
 
     this.textCanvas = document.createElement("canvas");
-    this.font = "2em IM Fell DW Pica"; // For some reason 4em is closer to 2em?
+    this.font = "2em IM Fell DW Pica";
 
     this.config = {
       allowBackspace: true,
@@ -201,7 +201,7 @@ class Typewriter extends React.Component {
               this.mergeState({
                 isAtEndOfLine: true,
               })
-              // break func execution;
+              // break func execution
               return;
             } else {
               // If we've already encountered it, play other sound prevent further input
@@ -256,11 +256,11 @@ class Typewriter extends React.Component {
   }
 
   getTextWidth(text) {
-    // re-use canvas object for better performance
     const font = this.font;
     const canvas = this.textCanvas;
     const context = canvas.getContext("2d");
     context.font = font;
+    // TODO: This doesn't seem to measure width exactly for the font
     const metrics = context.measureText(text);
     return metrics.width;
   }
@@ -278,7 +278,6 @@ class Typewriter extends React.Component {
           return <br key={index}/>;
         }
       } else if (index === charArray.length-1) {
-        //console.log("Assign ref to: ", char);
         return <span ref={this.lastCharRef} key={index}>{char}</span>;
       } else {
         return <span key={index}>{char}</span>;
@@ -301,7 +300,7 @@ class Typewriter extends React.Component {
       const charRefRect = this.lastCharRef.current.getBoundingClientRect();
 
       let horizontalScrollPos = window.scrollX; // Default horizontal value is current scroll
-      let verticalScrollPos = window.scrollY + charRefRect.top - (charRefRect.height * 5); // Offset is set to 2 lines of character height
+      let verticalScrollPos = window.scrollY + charRefRect.top - (charRefRect.height * 5);
 
       if (this.state.horizontalScroll) {
         horizontalScrollPos = window.scrollX + charRefRect.left - window.innerWidth/2; // Offset is half of window.innerWidth
@@ -349,7 +348,7 @@ class Typewriter extends React.Component {
           className="paper"
           onBlur={this.handleBlur}
           style={{
-            height: 2000 + (nrOfBr*40) //TODO: Need a way to detect char height
+            height: 2000 + (nrOfBr*40) //TODO: Need a way to test/detect char height from font
           }}
           onKeyDown={this.handleKeyDown(this.lastCharRef.current)}
           onKeyUp={this.handleKeyUp(this.lastCharRef.current)}
