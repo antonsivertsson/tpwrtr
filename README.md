@@ -2,8 +2,6 @@
 
 A tiny typewriter simulator in your browser, available at [tpwrtr.netlify.com](https://tpwrtr.netlify.com/)
 
-Currently broken on **Firefox** 💔
-
 ## Controls
 
 `enter` - Carriage Return
