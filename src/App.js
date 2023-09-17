@@ -66,14 +66,11 @@ class Typewriter extends React.Component {
     this.paperRef.current.focus();
 
     let horizontalPos = "auto";
-    let verticalPos = "3em";
 
     let node = this.paperRef.current;
     let nodeStyle = window.getComputedStyle(node);
     let marginLeft = nodeStyle.getPropertyValue('margin-left')
-    let marginTop = nodeStyle.getPropertyValue('margin-top')
     horizontalPos = parseInt(marginLeft.substring(0, marginLeft.length-2));
-    verticalPos = parseInt(marginTop.substring(0, marginTop.length-2));
 
     // Also set default margin
     this.leftMargin = horizontalPos;
