@@ -1,8 +1,12 @@
 import React from 'react';
 import './App.css';
 import moment from 'moment';
+import smoothscroll from 'smoothscroll-polyfill';
 
 import Tone from "tone";
+
+// Use polyfill to enable smoothscroll on safari
+smoothscroll.polyfill();
 
 // Load sounds
 let tpRoll1 = new Tone.Player("./pullback_1.wav").toMaster();
@@ -48,7 +52,7 @@ class Typewriter extends React.Component {
     this.writingStartPosition = 0;
 
     this.textCanvas = document.createElement("canvas");
-    this.font = "2em IM Fell DW Pica";
+    this.font = "26px monospace";
 
     this.config = {
       allowBackspace: true,
@@ -157,7 +161,7 @@ class Typewriter extends React.Component {
               horizontalScroll: !this.state.horizontalScroll,
               shouldResetView: false,
             })
-            //this.shouldResetViewIfHorizontalMode(true); // GO back to edit mode UNCOMMENT
+            this.shouldResetViewIfHorizontalMode(true);
             break;
           case "Enter":
           this.addStringToWrittenText("\n");
@@ -251,7 +255,7 @@ class Typewriter extends React.Component {
     const textRows = text.split("\n");
     const lastRow = textRows[textRows.length -1];
     const charArray = Array.from(lastRow);
-    const textWidth = this.getTextWidth(charArray);
+    const textWidth = this.getTextWidth(charArray.join(''));
     return textWidth;
   }
 
@@ -260,7 +264,6 @@ class Typewriter extends React.Component {
     const canvas = this.textCanvas;
     const context = canvas.getContext("2d");
     context.font = font;
-    // TODO: This doesn't seem to measure width exactly for the font
     const metrics = context.measureText(text);
     return metrics.width;
   }

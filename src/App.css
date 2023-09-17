@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: 'IM Fell DW Pica', serif;
+  font-family: monospace;
   width: 200%;
   background-color: #282c34;
   scroll-behavior: smooth;
@@ -26,7 +26,7 @@ body {
 
 .paper {
   background-color:white;
-  font-size: 2em;
+  font-size: 26px;
   height: 2000px;
   margin: 6em auto;
   width: 70vw;
