@@ -1,12 +1,10 @@
 # Tpwrtr - A JavaScript Typewriter ⌨️ 🎧
 
-A tiny typewriter simulator in your browser, available at [tpwrtr.netlify.com](https://tpwrtr.netlify.com/)
+A tiny typewriter simulator in your browser, available at [tpwrtr.netlify.app](https://tpwrtr.netlify.app/)
 
 ## Controls
 
 `enter` - Carriage Return
-
-`⌘/win` - 
 
 `⌘/win + esc` - Scrap paper
 
@@ -30,3 +28,4 @@ Builds the app for production to the `build` folder.<br>
 ## License information
 
 This application uses "typewriter.wav" sound from user [Horn](https://freesound.org/people/Horn/) on Freesound. It is available under the [CC 3.0 licence](https://creativecommons.org/licenses/by-nc/3.0/legalcode)
+
